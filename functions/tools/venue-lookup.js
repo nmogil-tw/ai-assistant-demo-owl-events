@@ -1,4 +1,4 @@
-const { Airtable } = require('airtable');
+const Airtable = require('airtable');
 
 exports.handler = async function(context, event, callback) {
   const airtable = new Airtable({ apiKey: context.AIRTABLE_API_KEY });

@@ -25,7 +25,7 @@ exports.handler = async function (context, event, callback) {
     console.log(`Querying events for venue: ${venue_name}`);
 
     // Query events from Airtable with venue filter
-    const records = await base('products')
+    const records = await base('upcoming_events')
       .select({
         filterByFormula: `{venue_name} = '${venue_name}'`,
         sort: [{ field: 'event_date', direction: 'asc' }]

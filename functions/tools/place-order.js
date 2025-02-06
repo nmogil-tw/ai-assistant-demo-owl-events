@@ -81,6 +81,10 @@ exports.handler = async function(context, event, callback) {
     }
 
     const eventDetails = eventRecords[0].fields;
+    
+    // Add debug logging
+    console.log('Event details:', JSON.stringify(eventDetails));
+    console.log('Ticket price type:', typeof eventDetails.ticket_price);
 
     // Check ticket availability
     if (eventDetails.tickets_available <= 0) {
@@ -89,8 +93,23 @@ exports.handler = async function(context, event, callback) {
       return callback(null, response);
     }
 
-    // Parse ticket price (remove $ and convert to number)
-    const ticketPrice = parseFloat(eventDetails.ticket_price.replace('$', ''));
+    // Parse ticket price with more robust handling
+    let ticketPrice;
+    if (typeof eventDetails.ticket_price === 'string') {
+      ticketPrice = parseFloat(eventDetails.ticket_price.replace('$', ''));
+    } else if (typeof eventDetails.ticket_price === 'number') {
+      ticketPrice = eventDetails.ticket_price;
+    } else {
+      response.setStatusCode(500);
+      response.setBody({ error: 'Invalid ticket price format' });
+      return callback(null, response);
+    }
+
+    if (isNaN(ticketPrice)) {
+      response.setStatusCode(500);
+      response.setBody({ error: 'Could not parse ticket price' });
+      return callback(null, response);
+    }
 
     // Generate random 6-digit ticket ID
     const ticketId = Math.floor(100000 + Math.random() * 900000).toString();
