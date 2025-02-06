@@ -86,7 +86,7 @@ npm install
 
 3. Configure Airtable:
 
-   a. Copy the Airtable base using [this link](https://airtable.com/appJpmkefU6JV7lfl/shr2bXI3Hv4bZkaeU)
+   a. Copy the Airtable base using [this link](https://airtable.com/appZLZFFgegNzfsyt/shr5qmjeXtAlThjlD)
 
    b. Once copied, you'll find the base ID in your Airtable URL (it looks like 'appXXXXXXXXXXXXX')
 
