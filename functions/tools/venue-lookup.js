@@ -5,7 +5,7 @@ exports.handler = async function(context, event, callback) {
   const base = airtable.base(context.AIRTABLE_BASE_ID);
 
   try {
-    const { city, name, zipCode } = event;
+    const { city, name, zip_code } = event;
     let filterFormula = '';
     
     // Build filter formula based on provided parameters
@@ -16,8 +16,8 @@ exports.handler = async function(context, event, callback) {
     if (name) {
       filters.push(`LOWER({name}) = LOWER("${name}")`);
     }
-    if (zipCode) {
-      filters.push(`{zip_code} = "${zipCode}"`);
+    if (zip_code) {
+      filters.push(`{zip_code} = "${zip_code}"`);
     }
     
     // Combine filters with AND if multiple filters exist
@@ -32,7 +32,7 @@ exports.handler = async function(context, event, callback) {
       name: record.get('name'),
       description: record.get('description'),
       city: record.get('city'),
-      zipCode: record.get('zip_code'),
+      zip_code: record.get('zip_code'),
       venueFoodOptions: record.get('venue_food'),
       offVenueFoodOptions: record.get('off_venue_food'),
       venueDrinks: record.get('venue_drinks'),

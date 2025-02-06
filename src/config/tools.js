@@ -85,9 +85,9 @@ module.exports = (domain) => ({
     method: 'GET',
     url: `https://${domain}/tools/venue-lookup`,
     schema: {
-      city: 'string', // optional: city to search for
-      name: 'string', // optional: venue name to search for
-      zipCode: 'string', // optional: zip code to search for
+      "city?": "string", // optional: city to search for
+      "name?": "string", // optional: venue name to search for
+      "zip_code?": "string", // optional: zip code to search for
     },
   },
 });
