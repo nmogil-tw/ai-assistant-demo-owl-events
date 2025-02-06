@@ -1,18 +1,18 @@
 > [!NOTE]
 > Twilio AI Assistants is a [Twilio Alpha](https://twilioalpha.com) project that is currently in Developer Preview.
 
-# Twilio AI Assistant Deployment Tool - Owl Shoes
+# Twilio AI Assistant Deployment Tool - Owl Events
 
-A modular tool for deploying a Twilio AI Assistant with pre-configured tools and knowledge bases. This project provides a structured way to create and configure an AI Assistant for retail customer service.
+A modular tool for deploying a Twilio AI Assistant with pre-configured tools and knowledge bases. This project provides a structured way to create and configure an AI Assistant for the events and ticketing space.
 
 ## Features
 
 - Automated assistant creation with retail-focused personality
 - Pre-configured tools for common retail operations:
   - Customer lookup
-  - Order management
-  - Returns processing
-  - Product recommendations
+  - Venue lookup
+  - Upcoming events recommendations
+  - Ticket returns
   - Customer surveys
 - Knowledge base integration for FAQs
 - Modular and maintainable codebase
