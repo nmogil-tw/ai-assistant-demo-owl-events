@@ -24,15 +24,15 @@ module.exports = (domain) => ({
     },
   },
   returnOrder: {
-    name: 'Return Order',
+    name: 'Return Ticket',
     description:
-      'Use this tool to return a customers order using the order id. Only use this tool if the order status is "delivered".',
+      'Use this tool to process a ticket return using the ticket ID. Collect the reason for return from the customer before proceeding.',
     type: 'WEBHOOK',
     method: 'POST',
     url: `https://${domain}/tools/return-order`,
     schema: {
-      order_id: 'string', //the order id to return
-      return_reason: 'string', //why the customer is returning the order
+      order_id: 'string', //the ticket id to return
+      return_reason: 'string', //why the customer is returning the ticket
     },
   },
   customerSurvey: {

@@ -4,7 +4,6 @@ exports.handler = async function(context, event, callback) {
   const response = new Twilio.Response();
   response.appendHeader('Content-Type', 'application/json');
   
-  // Define base outside try-catch to ensure proper scope
   let base;
   
   try {
