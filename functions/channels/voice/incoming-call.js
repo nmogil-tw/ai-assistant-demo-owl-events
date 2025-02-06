@@ -40,7 +40,7 @@ exports.handler = async function(context, event, callback) {
         <Connect>
           <Assistant 
             id="${context.ASSISTANT_ID}"
-            welcomeGreeting="Hi ${customer.first_name}, thanks for calling Owl Shoes, How can I help you?"
+            welcomeGreeting="Hi ${customer.first_name}, thanks for calling Owl Events, How can I help you?"
             voice="en-US-Journey-O">
           </Assistant>
         </Connect>`;
@@ -50,7 +50,7 @@ exports.handler = async function(context, event, callback) {
         <Connect>
           <Assistant 
             id="${context.ASSISTANT_ID}"
-            welcomeGreeting="Thanks for calling Owl Shoes, How can I help you?"
+            welcomeGreeting="Thanks for calling Owl Events, How can I help you?"
             voice="en-US-Journey-O">
           </Assistant>
         </Connect>`;
@@ -68,7 +68,7 @@ exports.handler = async function(context, event, callback) {
         <Connect>
           <Assistant 
             id="${context.ASSISTANT_ID}"
-            welcomeGreeting="Thanks for calling Owl Shoes, How can I help you?"
+            welcomeGreeting="Thanks for calling Owl Events, How can I help you?"
             voice="en-US-Journey-O">
           </Assistant>
         </Connect>
