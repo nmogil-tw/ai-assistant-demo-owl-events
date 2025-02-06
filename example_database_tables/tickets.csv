@@ -1,0 +1,7 @@
+﻿id,venue,event,total_amount,customer_id,email,phone,return_id,created_at
+139453,Bass Battalion,City Lights - Album Release,89.99000000,1,bert.owl@twilio.com,+12223334444,,2025-01-08 23:22
+991733,Echo Chamber,Jazz Fusion Collective - Live Band,80.99100000,1,bert.owl@twilio.com,+12223334444,,2025-01-14 09:16
+824726,Sonic Society,Digital Dreams - Music Festival,103.99200000,5,bert.owl@twilio.com,+17039513281,,2025-01-14 09:16
+822062,The Tempo Temple,The Midnight Echoes - DJ Night,149.99000000,5,bert.owl2@twilio.com,+17039513281,,2025-01-23 11:49
+216530,Harmony Hub,Jazz Fusion Collective - Electronic Music,149.99000000,5,bert.owl2@twilio.com,+17039513281,,2025-01-23 11:53
+542252,Beat Bunker,The Beat Makers - Live Band,149.99000000,5,bert.owl2@twilio.com,+17039513281,,2025-01-23 12:32

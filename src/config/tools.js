@@ -12,15 +12,15 @@ module.exports = (domain) => ({
     method: 'GET',
     url: `https://${domain}/tools/customer-lookup`,
   },
-  orderLookup: {
-    name: 'Order Look Up',
+  ticketLookup: {
+    name: 'Ticket Look Up',
     description:
-      'Use this tool to look up the customers order. ALWAYS ask the user to confirm the last four characters of their order number to ensure you are referencing the correct one.',
+      'Use this tool to look up the customer\'s ticket. ALWAYS ask the user to confirm the last four characters of their ticket number to ensure you are referencing the correct one.',
     type: 'WEBHOOK',
     method: 'GET',
-    url: `https://${domain}/tools/order-lookup`,
+    url: `https://${domain}/tools/ticket-lookup`,
     schema: {
-      order_confirmation_digits: 'string', //the last four characters of the order number
+      order_confirmation_digits: 'string', //the last four characters of the ticket number
     },
   },
   returnOrder: {

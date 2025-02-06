@@ -1,0 +1,83 @@
+﻿id,venue_name,event_name,event_description,event_date,ticket_price,tickets_available
+1,Rhythm Republic,The Beat Makers - Open Mic Night,Local talent spotlight featuring The Beat Makers. Featuring special guest performances.,2025-04-01,$151.00,223
+2,Rhythm Republic,Mountain Echo - Rock Show,Experience the raw power of Mountain Echo. Early bird tickets on sale now.,2025-04-02,$48.00,109
+3,Rhythm Republic,The Beat Makers - Music Festival,An explosive festival showcase starring The Beat Makers. Featuring special guest performances.,2025-02-09,$35.00,93
+4,Rhythm Republic,Crystal Cascade - Live Band,Witness a powerful live performance from Crystal Cascade. Limited VIP packages available.,2025-03-16,$131.00,233
+5,Bass Battalion,Jazz Fusion Collective - Album Release,Join the album launch party featuring Jazz Fusion Collective. Limited VIP packages available.,2025-03-02,$21.00,57
+6,Bass Battalion,Neon Pulse - Live Band,Witness a powerful live performance from Neon Pulse. Don't forget to arrive early for the opening acts.,2025-02-10,$25.00,52
+7,Bass Battalion,Urban Legends - Music Festival,A night of non-stop music headlined by Urban Legends. Don't forget to arrive early for the opening acts.,2025-02-14,$47.00,147
+8,Bass Battalion,Mountain Echo - Concert,Join us for an unforgettable night of live music featuring Mountain Echo. Meet & greet opportunities available.,2025-03-30,$95.00,54
+9,Bass Battalion,City Lights - Album Release,Celebrate the latest release with City Lights. Meet & greet opportunities available.,2025-03-26,$54.00,203
+10,Echo Chamber,Jazz Fusion Collective - Live Band,Witness a powerful live performance from Jazz Fusion Collective. Meet & greet opportunities available.,2025-03-06,$145.00,70
+11,Echo Chamber,Digital Dreams - Rock Show,Get ready to rock with Digital Dreams. Bring your dancing shoes!,2025-02-09,$35.00,50
+12,Echo Chamber,Thunder Road - Rock Show,High-energy rock performance by Thunder Road. Limited VIP packages available.,2025-03-26,$64.00,180
+13,Vinyl Vault,Urban Legends - Rock Show,High-energy rock performance by Urban Legends. Limited VIP packages available.,2025-02-26,$51.00,51
+14,Vinyl Vault,Desert Storm - Live Band,Witness a powerful live performance from Desert Storm. Full bar and food menu available.,2025-03-03,$108.00,120
+15,Vinyl Vault,Neon Pulse - Concert,Don't miss this spectacular performance by Neon Pulse. Featuring special guest performances.,2025-03-10,$158.00,225
+16,Vinyl Vault,Thunder Road - DJ Night,Get ready for an energetic mix session by Thunder Road. Bring your dancing shoes!,2025-03-17,$161.00,141
+17,Melody Manor,Ocean Drive - Open Mic Night,Discover new talent alongside featured artist Ocean Drive. Full bar and food menu available.,2025-03-29,$79.00,197
+18,Melody Manor,Digital Dreams - Concert,Join us for an unforgettable night of live music featuring Digital Dreams. Limited VIP packages available.,2025-03-04,$89.00,240
+19,Melody Manor,Digital Dreams - Electronic Music,Digital audio experience with Digital Dreams. Limited VIP packages available.,2025-02-20,$142.00,249
+20,Sonic Society,Mountain Echo - Concert,Experience an incredible evening with Mountain Echo. Limited VIP packages available.,2025-02-12,$111.00,228
+21,Sonic Society,City Lights - Album Release,Join the album launch party featuring City Lights. Perfect for date night or gathering with friends.,2025-03-27,$40.00,200
+22,Sonic Society,The Midnight Echoes - Album Release,Join the album launch party featuring The Midnight Echoes. Featuring special guest performances.,2025-02-20,$42.00,82
+23,Sonic Society,Digital Dreams - Music Festival,A night of non-stop music headlined by Digital Dreams. Don't forget to arrive early for the opening acts.,2025-03-09,$153.00,145
+24,The Tempo Temple,The Midnight Echoes - DJ Night,Immerse yourself in the electronic soundscapes of The Midnight Echoes. Meet & greet opportunities available.,2025-02-14,$55.00,169
+25,The Tempo Temple,Digital Dreams - Jazz Night,An evening of jazz excellence with Digital Dreams. Bring your dancing shoes!,2025-03-24,$113.00,168
+26,The Tempo Temple,City Lights - Jazz Night,An evening of jazz excellence with City Lights. Don't forget to arrive early for the opening acts.,2025-02-18,$154.00,74
+27,Decibel Den,The Midnight Echoes - Concert,Experience an incredible evening with The Midnight Echoes. Bring your dancing shoes!,2025-02-21,$111.00,104
+28,Decibel Den,Luna & The Starlights - Music Festival,A night of non-stop music headlined by Luna & The Starlights. Featuring special guest performances.,2025-02-11,$20.00,205
+29,Decibel Den,Desert Storm - Album Release,Join the album launch party featuring Desert Storm. Bring your dancing shoes!,2025-03-30,$117.00,242
+30,Decibel Den,Desert Storm - Concert,Join us for an unforgettable night of live music featuring Desert Storm. Meet & greet opportunities available.,2025-02-22,$119.00,170
+31,Decibel Den,Luna & The Starlights - Live Band,Feel the energy of a live show featuring Luna & The Starlights. Meet & greet opportunities available.,2025-03-17,$148.00,172
+32,Harmony Hub,Urban Legends - Open Mic Night,Discover new talent alongside featured artist Urban Legends. Limited VIP packages available.,2025-03-05,$36.00,57
+33,Harmony Hub,Jazz Fusion Collective - DJ Night,Immerse yourself in the electronic soundscapes of Jazz Fusion Collective. Featuring special guest performances.,2025-03-05,$34.00,95
+34,Harmony Hub,Desert Storm - DJ Night,Immerse yourself in the electronic soundscapes of Desert Storm. Full bar and food menu available.,2025-02-22,$69.00,169
+35,Harmony Hub,Thunder Road - Concert,Experience an incredible evening with Thunder Road. Early bird tickets on sale now.,2025-02-24,$94.00,229
+36,Harmony Hub,Jazz Fusion Collective - Electronic Music,Progressive electronic sounds from Jazz Fusion Collective. Perfect for date night or gathering with friends.,2025-03-15,$143.00,207
+37,Beat Bunker,The Beat Makers - Live Band,Experience raw musical talent with The Beat Makers. Perfect for date night or gathering with friends.,2025-03-18,$144.00,238
+38,Beat Bunker,Desert Storm - Concert,Experience an incredible evening with Desert Storm. Early bird tickets on sale now.,2025-02-18,$61.00,54
+39,Beat Bunker,Desert Storm - Rock Show,High-energy rock performance by Desert Storm. Featuring special guest performances.,2025-04-01,$37.00,73
+40,Beat Bunker,Luna & The Starlights - Rock Show,High-energy rock performance by Luna & The Starlights. Bring your dancing shoes!,2025-03-26,$80.00,84
+41,The Sound Stage,The Beat Makers - Album Release,Join the album launch party featuring The Beat Makers. Early bird tickets on sale now.,2025-03-01,$137.00,95
+42,The Sound Stage,Luna & The Starlights - Album Release,Be among the first to hear the new album from Luna & The Starlights. Meet & greet opportunities available.,2025-03-15,$98.00,89
+43,The Sound Stage,Electric Sky - Electronic Music,Cutting-edge electronic music featuring Electric Sky. Bring your dancing shoes!,2025-03-11,$117.00,148
+44,The Sound Stage,Urban Legends - DJ Night,Immerse yourself in the electronic soundscapes of Urban Legends. Limited VIP packages available.,2025-03-12,$41.00,127
+45,The Sound Stage,The Midnight Echoes - Rock Show,Experience the raw power of The Midnight Echoes. Perfect for date night or gathering with friends.,2025-02-16,$64.00,82
+46,Acoustic Avenue,Ocean Drive - Hip Hop Showcase,Fresh beats and rhymes featuring Ocean Drive. Early bird tickets on sale now.,2025-02-15,$156.00,204
+47,Acoustic Avenue,The Midnight Echoes - Hip Hop Showcase,Underground hip-hop showcase with The Midnight Echoes. Don't forget to arrive early for the opening acts.,2025-02-07,$136.00,183
+48,Acoustic Avenue,Desert Storm - Open Mic Night,Community music night hosted by Desert Storm. Early bird tickets on sale now.,2025-02-20,$78.00,211
+49,Acoustic Avenue,Ocean Drive - Live Band,Experience raw musical talent with Ocean Drive. Bring your dancing shoes!,2025-03-05,$164.00,220
+50,Crescendo Club,Electric Sky - Electronic Music,Cutting-edge electronic music featuring Electric Sky. Perfect for date night or gathering with friends.,2025-02-28,$69.00,133
+51,Crescendo Club,The Beat Makers - DJ Night,Dance the night away with electronic beats from The Beat Makers. Bring your dancing shoes!,2025-03-26,$45.00,98
+52,Crescendo Club,The Beat Makers - Rock Show,Experience the raw power of The Beat Makers. Don't forget to arrive early for the opening acts.,2025-03-19,$68.00,228
+53,Crescendo Club,The Beat Makers - Music Festival,An explosive festival showcase starring The Beat Makers. Early bird tickets on sale now.,2025-03-15,$70.00,212
+54,The Groove Gallery,City Lights - Live Band,Feel the energy of a live show featuring City Lights. Meet & greet opportunities available.,2025-02-17,$157.00,124
+55,The Groove Gallery,The Beat Makers - Electronic Music,Cutting-edge electronic music featuring The Beat Makers. Full bar and food menu available.,2025-03-27,$109.00,173
+56,The Groove Gallery,Jazz Fusion Collective - DJ Night,Immerse yourself in the electronic soundscapes of Jazz Fusion Collective. Bring your dancing shoes!,2025-03-05,$146.00,200
+57,The Groove Gallery,Luna & The Starlights - Open Mic Night,Local talent spotlight featuring Luna & The Starlights. Don't forget to arrive early for the opening acts.,2025-03-22,$144.00,170
+58,Amplify Arena,Sonic Waves - Concert,Join us for an unforgettable night of live music featuring Sonic Waves. Limited VIP packages available.,2025-02-24,$92.00,60
+59,Amplify Arena,Neon Pulse - Music Festival,A night of non-stop music headlined by Neon Pulse. Early bird tickets on sale now.,2025-03-10,$95.00,222
+60,Amplify Arena,Mountain Echo - Live Band,Witness a powerful live performance from Mountain Echo. Perfect for date night or gathering with friends.,2025-03-24,$168.00,231
+61,Chord Castle,The Beat Makers - Music Festival,A night of non-stop music headlined by The Beat Makers. Perfect for date night or gathering with friends.,2025-03-13,$119.00,217
+62,Chord Castle,The Midnight Echoes - Rock Show,Experience the raw power of The Midnight Echoes. Early bird tickets on sale now.,2025-03-29,$120.00,210
+63,Chord Castle,The Beat Makers - Jazz Night,An evening of jazz excellence with The Beat Makers. Featuring special guest performances.,2025-03-17,$157.00,240
+64,Chord Castle,The Beat Makers - Electronic Music,Progressive electronic sounds from The Beat Makers. Perfect for date night or gathering with friends.,2025-03-07,$49.00,190
+65,Chord Castle,The Midnight Echoes - Live Band,Experience raw musical talent with The Midnight Echoes. Early bird tickets on sale now.,2025-02-25,$148.00,155
+66,Metro Music Hall,The Beat Makers - Album Release,Celebrate the latest release with The Beat Makers. Limited VIP packages available.,2025-02-24,$86.00,180
+67,Metro Music Hall,Digital Dreams - DJ Night,Get ready for an energetic mix session by Digital Dreams. Perfect for date night or gathering with friends.,2025-02-17,$85.00,80
+68,Metro Music Hall,Ocean Drive - Electronic Music,Cutting-edge electronic music featuring Ocean Drive. Featuring special guest performances.,2025-03-24,$85.00,137
+69,Metro Music Hall,Crystal Cascade - Rock Show,High-energy rock performance by Crystal Cascade. Don't forget to arrive early for the opening acts.,2025-04-02,$95.00,236
+70,Metro Music Hall,Electric Sky - Rock Show,Get ready to rock with Electric Sky. Early bird tickets on sale now.,2025-04-03,$20.00,222
+71,Fusion Factory,Desert Storm - Album Release,Be among the first to hear the new album from Desert Storm. Don't forget to arrive early for the opening acts.,2025-03-26,$81.00,56
+72,Fusion Factory,The Midnight Echoes - Music Festival,Multi-stage festival experience featuring The Midnight Echoes. Perfect for date night or gathering with friends.,2025-03-31,$122.00,198
+73,Fusion Factory,Luna & The Starlights - Album Release,Celebrate the latest release with Luna & The Starlights. Meet & greet opportunities available.,2025-02-10,$123.00,205
+74,The Treble Tavern,Sonic Waves - Music Festival,An explosive festival showcase starring Sonic Waves. Early bird tickets on sale now.,2025-02-11,$142.00,65
+75,The Treble Tavern,Luna & The Starlights - Concert,Don't miss this spectacular performance by Luna & The Starlights. Meet & greet opportunities available.,2025-02-24,$79.00,99
+76,The Treble Tavern,Sonic Waves - Live Band,Witness a powerful live performance from Sonic Waves. Early bird tickets on sale now.,2025-02-09,$112.00,177
+77,The Treble Tavern,Ocean Drive - Concert,Experience an incredible evening with Ocean Drive. Meet & greet opportunities available.,2025-03-31,$92.00,169
+78,The Treble Tavern,Desert Storm - Rock Show,Get ready to rock with Desert Storm. Limited VIP packages available.,2025-03-21,$60.00,191
+79,Symphony Space,The Beat Makers - Concert,Join us for an unforgettable night of live music featuring The Beat Makers. Perfect for date night or gathering with friends.,2025-02-24,$23.00,97
+80,Symphony Space,Digital Dreams - Jazz Night,An evening of jazz excellence with Digital Dreams. Meet & greet opportunities available.,2025-04-04,$32.00,89
+81,Symphony Space,The Beat Makers - Album Release,Be among the first to hear the new album from The Beat Makers. Limited VIP packages available.,2025-04-01,$156.00,204
+82,Symphony Space,Thunder Road - Electronic Music,Cutting-edge electronic music featuring Thunder Road. Don't forget to arrive early for the opening acts.,2025-02-13,$54.00,50

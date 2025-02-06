@@ -67,54 +67,54 @@ exports.handler = async function (context, event, callback) {
       });
     }
 
-    console.log(`Querying orders for ${queryField}: ${queryValue}`);
+    console.log(`Querying tickets for ${queryField}: ${queryValue}`);
 
     // Airtable setup
     const base = new Airtable({apiKey: context.AIRTABLE_API_KEY}).base(context.AIRTABLE_BASE_ID);
 
-    // Get all orders for the specific user
-    const records = await base('orders')
+    // Get all tickets for the specific user
+    const records = await base('tickets')
       .select({
         filterByFormula: `{${queryField}} = '${queryValue}'`
       })
       .firstPage();
 
     if (!records || records.length === 0) {
-      console.log(`No orders found for ${queryField}: ${queryValue}`);
+      console.log(`No tickets found for ${queryField}: ${queryValue}`);
       return callback(null, {
         status: 404,
-        message: `No orders found for ${queryField}: ${queryValue}`,
+        message: `No tickets found for ${queryField}: ${queryValue}`,
       });
     }
 
-    // Filter user's orders to find those matching the last 4 digits
-    const matchingOrders = records.filter(record => {
-      const orderId = record.fields.id || '';
-      const orderIdLast4 = String(orderId).slice(-4);
-      return orderIdLast4 === cleanDigits;
+    // Filter user's tickets to find those matching the last 4 digits
+    const matchingTickets = records.filter(record => {
+      const ticketId = record.fields.id || '';
+      const ticketIdLast4 = String(ticketId).slice(-4);
+      return ticketIdLast4 === cleanDigits;
     });
 
-    if (matchingOrders.length === 0) {
-      console.log(`No order found with confirmation digits: ${cleanDigits}`);
+    if (matchingTickets.length === 0) {
+      console.log(`No ticket found with confirmation digits: ${cleanDigits}`);
       return callback(null, {
         status: 404,
-        message: `No order found with confirmation digits: ${cleanDigits}`,
+        message: `No ticket found with confirmation digits: ${cleanDigits}`,
       });
     }
 
-    if (matchingOrders.length > 1) {
-      console.log(`Multiple orders found with confirmation digits: ${cleanDigits}`);
+    if (matchingTickets.length > 1) {
+      console.log(`Multiple tickets found with confirmation digits: ${cleanDigits}`);
       return callback(null, {
         status: 409,
-        message: 'Multiple orders found with these confirmation digits.',
+        message: 'Multiple tickets found with these confirmation digits.',
       });
     }
 
-    console.log(`Found order with ID: ${matchingOrders[0].fields.id}`);
+    console.log(`Found ticket with ID: ${matchingTickets[0].fields.id}`);
     return callback(null, {
       status: 200,
-      order: matchingOrders[0].fields,
-      message: 'Order found successfully',
+      ticket: matchingTickets[0].fields,
+      message: 'Ticket found successfully',
     });
 
   } catch (err) {
