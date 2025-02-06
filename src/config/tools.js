@@ -47,13 +47,16 @@ module.exports = (domain) => ({
       feedback: 'string', //the feedback the user gave
     },
   },
-  productInventory: {
-    name: 'Product Inventory',
+  upcomingEvents: {
+    name: 'Upcoming Events',
     description:
-      'Use this tool to provide product recommendations to the user.',
+      'Use this tool to look up upcoming events at a specific venue. You must provide the venue name.',
     type: 'WEBHOOK',
     method: 'GET',
-    url: `https://${domain}/tools/products`,
+    url: `https://${domain}/tools/upcoming-events`,
+    schema: {
+      venue_name: 'string', // the name of the venue to query events for
+    },
   },
   sendToFelx: {
     name: 'Send to Flex',
@@ -64,14 +67,14 @@ module.exports = (domain) => ({
     url: `https://${domain}/tools/send-to-flex`,
   },
   placeOrder: {
-    name: 'Place Order',
+    name: 'Place Ticket Order',
     description:
-      "User this tool to place an order, ALWAYS confirm with user if you'd like to place the order using the same billing and shipping information as their last order.",
+      "Use this tool to place a ticket order for an event. ALWAYS confirm the event details (name, venue, date, price) with the user before placing the order. Check ticket availability before proceeding.",
     type: 'WEBHOOK',
     method: 'POST',
     url: `https://${domain}/tools/place-order`,
     schema: {
-      product_id: 'string', //the product id to order
+      event_id: 'string',
     },
   },
 });

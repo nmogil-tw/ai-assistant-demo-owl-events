@@ -22,7 +22,6 @@ exports.handler = async function(context, event, callback) {
     
     const { order_id, return_reason } = event;
     
-    // Rest of the code remains the same
     if (!order_id || !return_reason) {
       response.setStatusCode(400);
       response.setBody({ 
@@ -32,46 +31,35 @@ exports.handler = async function(context, event, callback) {
       return callback(null, response);
     }
     
-    // Get order details
-    let orderRecords;
+    // Get ticket details
+    let ticketRecords;
     try {
-      orderRecords = await base('orders')
+      ticketRecords = await base('tickets')
         .select({
           filterByFormula: `{id} = '${order_id}'`,
           maxRecords: 1
         })
         .firstPage();
-    } catch (orderError) {
+    } catch (ticketError) {
       response.setStatusCode(500);
       response.setBody({ 
-        message: 'Failed to fetch order details',
-        error: orderError.message 
+        message: 'Failed to fetch ticket details',
+        error: ticketError.message 
       });
       return callback(null, response);
     }
       
-    if (!orderRecords || orderRecords.length === 0) {
+    if (!ticketRecords || ticketRecords.length === 0) {
       response.setStatusCode(404);
       response.setBody({ 
-        message: 'Order not found',
-        error: `No order found with ID: ${order_id}`
+        message: 'Ticket not found',
+        error: `No ticket found with ID: ${order_id}`
       });
       return callback(null, response);
     }
 
-    const order = orderRecords[0].fields;
+    const ticket = ticketRecords[0].fields;
 
-    // Check if order status is "delivered"
-    if (order.shipping_status !== 'delivered') {
-      response.setStatusCode(400);
-      response.setBody({ 
-        message: 'Cannot process return - order must be in delivered status',
-        current_status: order.shipping_status,
-        error: 'Invalid order status for return'
-      });
-      return callback(null, response);
-    }
-    
     // Check if return already exists
     let returnRecords;
     try {
@@ -93,19 +81,19 @@ exports.handler = async function(context, event, callback) {
     if (returnRecords && returnRecords.length > 0) {
       response.setStatusCode(409);
       response.setBody({ 
-        message: 'Return already exists for this order',
-        existing_return_id: returnRecords[0].fields.id  // Updated to use fields.id
+        message: 'Return already exists for this ticket',
+        existing_return_id: returnRecords[0].fields.id
       });
       return callback(null, response);
     }
     
     // Create new return record
     const returnData = {
-      order_id: order.id,
-      customer_id: order.customer_id,
+      order_id: ticket.id,
+      customer_id: ticket.customer_id,
       reason: return_reason,
       status: 'submitted',
-      refund_amount: order.total_amount,
+      refund_amount: ticket.total_amount,
       created_at: new Date().toISOString(),
       updated_at: new Date().toISOString()
     };
@@ -147,21 +135,21 @@ exports.handler = async function(context, event, callback) {
       return callback(null, response);
     }
 
-    // Update order with return_id
+    // Update ticket with return_id
     try {
-      await base('orders').update([
+      await base('tickets').update([
         {
-          id: orderRecords[0].id,
+          id: ticketRecords[0].id,
           fields: {
             return_id: newReturn[0].fields.id
           }
         }
       ]);
-    } catch (updateOrderError) {
+    } catch (updateTicketError) {
       response.setStatusCode(500);
       response.setBody({ 
-        message: 'Return created but failed to update order with return ID',
-        error: updateOrderError.message,
+        message: 'Return created but failed to update ticket with return ID',
+        error: updateTicketError.message,
         return_id: newReturn[0].fields.id
       });
       return callback(null, response);
@@ -170,7 +158,7 @@ exports.handler = async function(context, event, callback) {
     // Return success response
     response.setStatusCode(200);
     response.setBody({
-      message: 'Return initiated successfully',
+      message: 'Ticket return initiated successfully',
       return_id: newReturn[0].fields.id,
       status: 'success'
     });

@@ -10,28 +10,40 @@ exports.handler = async function (context, event, callback) {
       });
     }
 
-    // Airtable setup
-    const base = new Airtable({apiKey: context.AIRTABLE_API_KEY}).base(context.AIRTABLE_BASE_ID);
-
-    console.log('Querying all products from products table');
-
-    // Query all products from Airtable
-    const records = await base('products')
-      .select()
-      .all();  // Use .all() to get all records, not just the first page
-
-    if (!records || records.length === 0) {
-      console.log('No products found in the database');
+    // Validate venue name from payload
+    const venue_name = event.venue_name;
+    if (!venue_name) {
       return callback(null, {
-        status: 404,
-        message: 'No products found in the database',
+        status: 400,
+        message: 'Venue name is required',
       });
     }
 
-    console.log(`Found ${records.length} products`);
+    // Airtable setup
+    const base = new Airtable({apiKey: context.AIRTABLE_API_KEY}).base(context.AIRTABLE_BASE_ID);
+
+    console.log(`Querying events for venue: ${venue_name}`);
+
+    // Query events from Airtable with venue filter
+    const records = await base('products')
+      .select({
+        filterByFormula: `{venue_name} = '${venue_name}'`,
+        sort: [{ field: 'event_date', direction: 'asc' }]
+      })
+      .all();
+
+    if (!records || records.length === 0) {
+      console.log(`No events found for venue: ${venue_name}`);
+      return callback(null, {
+        status: 404,
+        message: `No events found for venue: ${venue_name}`,
+      });
+    }
+
+    console.log(`Found ${records.length} events for ${venue_name}`);
     return callback(null, {
       status: 200,
-      products: records.map(record => record.fields),
+      events: records.map(record => record.fields),
     });
 
   } catch (err) {

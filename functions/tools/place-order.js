@@ -24,10 +24,10 @@ exports.handler = async function(context, event, callback) {
       return callback(null, response);
     }
 
-    const { product_id } = event;
-    if (!product_id) {
+    const { event_id } = event;
+    if (!event_id) {
       response.setStatusCode(400);
-      response.setBody({ error: 'Missing product_id in request body' });
+      response.setBody({ error: 'Missing event_id in request body' });
       return callback(null, response);
     }
 
@@ -66,86 +66,81 @@ exports.handler = async function(context, event, callback) {
 
     const customer = customerRecords[0].fields;
 
-    // Lookup product
-    const productRecords = await base('products')
+    // Lookup event instead of product
+    const eventRecords = await base('upcoming_events')
       .select({
-        filterByFormula: `{id} = '${product_id}'`,
+        filterByFormula: `{id} = '${event_id}'`,
         maxRecords: 1
       })
       .firstPage();
 
-    if (!productRecords || productRecords.length === 0) {
+    if (!eventRecords || eventRecords.length === 0) {
       response.setStatusCode(404);
-      response.setBody({ error: `No product found with id: ${product_id}` });
+      response.setBody({ error: `No event found with id: ${event_id}` });
       return callback(null, response);
     }
 
-    const product = productRecords[0].fields;
+    const eventDetails = eventRecords[0].fields;
 
-    // Calculate final price considering any current discount
-    let finalPrice = product.price;
-    if (product.current_discount) {
-      const discountAmount = parseFloat(product.current_discount);
-      if (!isNaN(discountAmount)) {
-        finalPrice = product.price * (1 - discountAmount / 100);
-      }
+    // Check ticket availability
+    if (eventDetails.tickets_available <= 0) {
+      response.setStatusCode(400);
+      response.setBody({ error: 'Event is sold out' });
+      return callback(null, response);
     }
 
-    // Generate random 6-digit order ID
-    const orderId = Math.floor(100000 + Math.random() * 900000).toString();
+    // Parse ticket price (remove $ and convert to number)
+    const ticketPrice = parseFloat(eventDetails.ticket_price.replace('$', ''));
 
-    // Create order record
-    const orderData = {
-      id: orderId,
+    // Generate random 6-digit ticket ID
+    const ticketId = Math.floor(100000 + Math.random() * 900000).toString();
+
+    // Create ticket record
+    const ticketData = {
+      id: ticketId,
       customer_id: customer.id,
       email: customer.email,
       phone: customer.phone,
-      items: JSON.stringify([{  // Airtable requires stringified JSON for complex objects
-        id: product.id,
-        name: product.name,
-        price: finalPrice,
-        quantity: 1,
-        image_url: product.image_url,
-        size: product.size,
-        color: product.color,
-        category: product.category,
-        brand: product.brand
-      }]),
-      total_amount: finalPrice,
-      shipping_status: 'pending'
+      venue: eventDetails.venue_name,
+      event: eventDetails.event_name,
+      total_amount: ticketPrice,
+      created_at: new Date().toISOString()
     };
 
-    const newOrder = await base('orders').create([
-      { fields: orderData }
+    const newTicket = await base('tickets').create([
+      { fields: ticketData }
     ]);
 
-    if (!newOrder || newOrder.length === 0) {
+    if (!newTicket || newTicket.length === 0) {
       response.setStatusCode(500);
-      response.setBody({ error: 'Failed to create order record' });
+      response.setBody({ error: 'Failed to create ticket record' });
       return callback(null, response);
     }
+
+    // Update tickets_available count
+    await base('upcoming_events').update([{
+      id: eventRecords[0].id,
+      fields: {
+        tickets_available: eventDetails.tickets_available - 1
+      }
+    }]);
 
     // Return success response
     response.setStatusCode(200);
     response.setBody({
-      message: 'Order created successfully',
-      order_id: orderId,
+      message: 'Ticket ordered successfully',
+      ticket_id: ticketId,
       order_details: {
         customer: {
           name: `${customer.first_name} ${customer.last_name}`,
-          email: customer.email,
-          shipping_address: {
-            address: customer.address,
-            city: customer.city,
-            state: customer.state,
-            zip_code: customer.zip_code
-          }
+          email: customer.email
         },
-        product: {
-          name: product.name,
-          price: finalPrice,
-          original_price: product.price,
-          discount_applied: product.current_discount || '0'
+        event: {
+          name: eventDetails.event_name,
+          venue: eventDetails.venue_name,
+          date: eventDetails.event_date,
+          price: ticketPrice,
+          description: eventDetails.event_description
         }
       }
     });
