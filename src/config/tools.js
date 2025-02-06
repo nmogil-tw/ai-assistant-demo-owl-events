@@ -77,4 +77,17 @@ module.exports = (domain) => ({
       event_id: 'string',
     },
   },
+  venueLookup: {
+    name: 'Venue Lookup',
+    description:
+      'Use this tool to search for venue information based on city, venue name, or zip code. Returns detailed information about matching venues including food and drink options.',
+    type: 'WEBHOOK',
+    method: 'GET',
+    url: `https://${domain}/tools/venue-lookup`,
+    schema: {
+      city: 'string', // optional: city to search for
+      name: 'string', // optional: venue name to search for
+      zipCode: 'string', // optional: zip code to search for
+    },
+  },
 });

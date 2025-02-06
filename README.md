@@ -7,8 +7,8 @@ A modular tool for deploying a Twilio AI Assistant with pre-configured tools and
 
 ## Features
 
-- Automated assistant creation with retail-focused personality
-- Pre-configured tools for common retail operations:
+- Automated assistant creation with events-focused personality
+- Pre-configured tools for common event operations:
   - Customer lookup
   - Venue lookup
   - Upcoming events recommendations
@@ -214,15 +214,15 @@ The assistant uses several tool functions that need to be implemented:
    - Looks up customer information
    - Returns customer details
 
-2. Order Lookup (`/tools/order-lookup`)
+2. Ticket Lookup (`/tools/ticket-lookup`)
 
    - GET request
-   - Retrieves order information
-   - Validates order ID
+   - Retrieves ticket information
+   - Validates ticket ID
    - Input schema:
      ```javascript
      {
-       order_confirmation_digits: string; //Last 4 digits of customers order
+       ticket_confirmation_digits: string; //Last 4 digits of customers ticket
      }
      ```
 
@@ -240,44 +240,37 @@ The assistant uses several tool functions that need to be implemented:
      }
      ```
 
-4. Order Return (`/tools/return-order`)
+4. Ticket Return (`/tools/return-order`)
 
    - POST request
-   - Initiates return process for delivered orders
-   - Validates order status and existing returns
-   - Creates return record and updates order
+   - Initiates return process for valid tickets
+   - Validates ticket status and existing returns
+   - Creates return record and updates ticket status
    - Input schema:
      ```javascript
      {
-       order_id: string,      // Required: order identifier
+       ticket_id: string,      // Required: ticket identifier
        return_reason: string  // Required: reason for return
      }
      ```
 
-5. Place Order (`/tools/place-order`)
-
-   - POST request
-   - Creates new orders using customer information
-   - Handles product lookup and pricing
-   - Calculates any applicable discounts
-   - Input schema:
-     ```javascript
-     {
-       product_id: string; // Required: product identifier
-     }
-     ```
-
-6. Product Inventory (`/tools/products`)
+5. Upcoming Events (`/tools/upcoming-events`)
 
    - GET request
-   - Retrieves complete product catalog
-   - Includes product details, pricing, and availability
-   - Used for product recommendations
+   - Retrieves list of upcoming events
+   - Can filter by venue, date range, or event type
+   - Used for event recommendations
    - No input parameters required
 
-7. Product Inventory (`/tools/send-to-flex`)
+6. Studio Handover (`/tools/studio-handover`)
    - POST request
-   - Transfers conversation to a flex queue
+   - Transfers conversation to a Twilio Studio flow
+   - Useful for complex booking flows or human agent handoff
+
+7. Send to Flex (`/tools/send-to-flex`)
+   - POST request
+   - Transfers conversation to a Flex queue
+   - Used when customer needs direct agent assistance
 
 ## Development
 
