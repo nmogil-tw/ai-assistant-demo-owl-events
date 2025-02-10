@@ -50,9 +50,10 @@ twilio-ai-assistant/
 │   └── tools/                               # Assistant tool implementations
 │       ├── create-survey.js                 # CSAT survey creation
 │       ├── customer-lookup.js               # Customer information lookup
-│       ├── order-lookup.js                  # Order status lookup
+│       ├── venue-lookup.js                  # Venue lookup
+│       ├── event-lookup.js                  # Events lookup
 │       ├── place-order.js                   # Order placement
-│       ├── products.js                      # Product catalog access
+│       ├── tickets.js                       # Tickets for events
 │       ├── return-order.js                  # Return processing
 │       └── send-to-flex.js                  # Flex transfer handler
 ├── prompts/                                 # Assistant configuration
@@ -209,68 +210,59 @@ twilio api:conversations:v1:services:configuration:webhooks:update \
 The assistant uses several tool functions that need to be implemented:
 
 1. Customer Lookup (`/tools/customer-lookup`)
-
    - GET request
-   - Looks up customer information
-   - Returns customer details
+   - Looks up customer information in the database
+   - Returns customer details and history
 
-2. Ticket Lookup (`/tools/ticket-lookup`)
-
+2. Venue Lookup (`/tools/venue-lookup`)
    - GET request
-   - Retrieves ticket information
-   - Validates ticket ID
-   - Input schema:
-     ```javascript
-     {
-       ticket_confirmation_digits: string; //Last 4 digits of customers ticket
-     }
-     ```
+   - Retrieves venue information and details
+   - Used for providing venue-specific information
 
-3. Create Survey (`/tools/create-survey`)
-
-   - POST request
-   - Creates customer satisfaction survey records
-   - Captures rating and feedback
-   - Requires customer identification via x-identity header
-   - Input schema:
-     ```javascript
-     {
-       rating: number,    // Required: 1-5 rating
-       feedback: string   // Optional: customer feedback
-     }
-     ```
-
-4. Ticket Return (`/tools/return-order`)
-
-   - POST request
-   - Initiates return process for valid tickets
-   - Validates ticket status and existing returns
-   - Creates return record and updates ticket status
-   - Input schema:
-     ```javascript
-     {
-       ticket_id: string,      // Required: ticket identifier
-       return_reason: string  // Required: reason for return
-     }
-     ```
-
-5. Upcoming Events (`/tools/upcoming-events`)
-
+3. Upcoming Events (`/tools/upcoming-events`)
    - GET request
    - Retrieves list of upcoming events
    - Can filter by venue, date range, or event type
    - Used for event recommendations
-   - No input parameters required
 
-6. Studio Handover (`/tools/studio-handover`)
+4. Ticket Lookup (`/tools/ticket-lookup`)
+   - GET request
+   - Retrieves ticket information
+   - Validates ticket status
+   - Returns detailed ticket information
+
+5. Place Order (`/tools/place-order`)
+   - POST request
+   - Handles ticket purchase requests
+   - Processes order information
+   - Creates new ticket records
+
+6. Return Order (`/tools/return-order`)
+   - POST request
+   - Initiates return process for valid tickets
+   - Validates ticket status and existing returns
+   - Creates return record and updates ticket status
+
+7. Create Survey (`/tools/create-survey`)
+   - POST request
+   - Creates customer satisfaction survey records
+   - Captures rating and feedback
+   - Stores survey responses in the database
+
+8. Send to Flex (`/tools/send-to-flex`)
+   - POST request
+   - Transfers conversation to a Flex agent
+   - Used when customer needs direct agent assistance
+
+9. Studio Handover (`/tools/studio-handover`)
    - POST request
    - Transfers conversation to a Twilio Studio flow
-   - Useful for complex booking flows or human agent handoff
+   - Useful for complex workflows or automated processes
 
-7. Send to Flex (`/tools/send-to-flex`)
-   - POST request
-   - Transfers conversation to a Flex queue
-   - Used when customer needs direct agent assistance
+10. Cold Transfer (`/tools/cold-transfer`)
+    - POST request
+    - Handles cold transfer of conversations
+    - Used for routing to specific departments or queues
 
 ## Development
 
